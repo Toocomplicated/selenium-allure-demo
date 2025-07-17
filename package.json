@@ -1,0 +1,29 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "rm -rf allure-results && ALLURE_OUTPUT_DIR=allure-results mocha test/*.spec.js --reporter allure-mocha",
+    "report:generate": "allure generate allure-results -o allure-report --clean",
+    "report:open": "allure open allure-report",
+    "test:debug": "mocha test/*.spec.js --reporter spec"
+  },
+  "dependencies": {
+    "chai": "^5.2.1",
+    "chromedriver": "^138.0.2",
+    "mocha": "^11.7.1",
+    "selenium-webdriver": "^4.34.0"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.34.1",
+    "allure-mocha": "^3.3.1"
+  },
+  "name": "se",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,37 @@
+name: Run Tests and Deploy Allure Report
+
+on:
+  push:
+    branches: [main]   # 你可以改成 master 或其他
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Tests with Allure Reporter
+      run: |
+        rm -rf allure-results
+        npx mocha test --reporter @shelex/allure-mocha
+
+    - name: Generate Allure Report
+      run: |
+        npx allure generate allure-results -o allure-report --clean
+
+    - name: Deploy Allure Report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./allure-report
