@@ -10,11 +10,11 @@
     "chai": "^5.2.1",
     "chromedriver": "^138.0.2",
     "mocha": "^11.7.1",
-    "selenium-webdriver": "^4.34.0"
-  },
-  "devDependencies": {
+    "selenium-webdriver": "^4.34.0",
     "allure-commandline": "^2.34.1",
     "allure-mocha": "^3.3.1"
+  },
+  "devDependencies": {
   },
   "name": "se",
   "version": "1.0.0",
