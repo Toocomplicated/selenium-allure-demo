@@ -20,8 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
+      # - name: Run tests
+      #   run: npm test
+      - name: Run tests (without Allure)
+        run: mocha test/*.spec.js
 
       - name: Generate Allure Report
         run: npx allure generate allure-results --clean -o allure-report
