@@ -38,7 +38,7 @@ describe('电影搜索页面测试', function () {
   });
 
   after(async () => {
-    await driver.quit();
+    // await driver.quit();
   });
 
   it('首页点击搜索框可以跳转到搜索页', async () => {
