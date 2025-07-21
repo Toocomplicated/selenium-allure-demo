@@ -40,29 +40,29 @@ describe('电影搜索页面测试', function () {
     await driver.quit();
   });
 
-  // it('首页点击搜索框可以跳转到搜索页', async () => {
-  //   try{
-  //       global.allure.story("搜索页面导航");
+  it('首页点击搜索框可以跳转到搜索页', async () => {
+    try{
+        global.allure.story("搜索页面导航");
         
-  //       await driver.get('https://movie-d.juyoufuli.com/');
-  //       const searchInput = await driver.wait(until.elementLocated(By.className('seearchContent')), 10000);
-  //       await searchInput.click();
+        await driver.get('https://movie-d.juyoufuli.com/');
+        const searchInput = await driver.wait(until.elementLocated(By.className('seearchContent')), 10000);
+        await searchInput.click();
         
-  //       await driver.wait(until.urlContains('searchPage'), 10000);
-  //       const currentUrl = await driver.getCurrentUrl();
-  //       expect(currentUrl).to.include('searchPage');
+        await driver.wait(until.urlContains('searchPage'), 10000);
+        const currentUrl = await driver.getCurrentUrl();
+        expect(currentUrl).to.include('searchPage');
         
-  //       // 添加截图附件
-  //       const screenshot = await driver.takeScreenshot();
-  //       global.allure.attachment("首页截图", Buffer.from(screenshot, 'base64'), 'image/png');
+        // 添加截图附件
+        const screenshot = await driver.takeScreenshot();
+        global.allure.attachment("首页截图", Buffer.from(screenshot, 'base64'), 'image/png');
         
-  //       console.log('✅ 测试通过：成功跳转到搜索页面！');
-  //     } catch (e) {
-  //       console.error(e);
-  //       throw e;
-  //   }
+        console.log('✅ 测试通过：成功跳转到搜索页面！');
+      } catch (e) {
+        console.error(e);
+        throw e;
+    }
     
-  // });
+  });
 
   // it('搜索少年的你，现实搜索结果', async function() {
   //   try{
