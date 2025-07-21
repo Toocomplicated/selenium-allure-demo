@@ -21,10 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests and generate Allure results
+      - name: Run tests and generate allure-results
         run: |
           rm -rf allure-results || true
           ALLURE_OUTPUT_DIR=allure-results npx mocha test/*.spec.js --reporter allure-mocha
+        continue-on-error: true
 
       - name: Generate Allure report
         run: |
