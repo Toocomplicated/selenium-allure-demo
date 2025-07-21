@@ -1,18 +1,19 @@
-name: Run Tests and Deploy Allure Report
+name: Run tests and deploy Allure report
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main  # 修改为你的默认分支名（如 master）
 
 jobs:
-  test-and-deploy:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -20,13 +21,35 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # - name: Run tests
-      #   run: npm test
-      - name: Run tests
-        run: npx mocha test/*.spec.js
+      - name: Run tests and generate Allure results
+        run: |
+          rm -rf allure-results
+          ALLURE_OUTPUT_DIR=allure-results npx mocha test/*.spec.js --reporter allure-mocha
 
-      - name: Generate Allure Report
-        run: npx allure generate allure-results --clean -o allure-report
+      - name: Generate Allure report
+        run: |
+          npx allure generate allure-results --clean -o allure-report
+
+      - name: Upload Allure report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
