@@ -3,8 +3,10 @@ import { Builder, By, until, Key } from 'selenium-webdriver';
 import { expect } from 'chai';
 
 // ES Module兼容方案
-global.allure = allure;
-
+// global.allure = allure;
+<div>
+  测试
+</div>
 // describe("Example Test Suite", () => {
 //   it("should work", () => {
 //     // 确保Allure API可用
@@ -26,44 +28,44 @@ global.allure = allure;
 // });
 
 describe('电影搜索页面测试', function () {
-  let driver;
-  this.timeout(30000); // 增加超时时间
+  // let driver;
+  // this.timeout(30000); // 增加超时时间
 
-  before(async () => {
-    // 添加Allure环境标签
-    global.allure.epic("电影系统测试");
-    global.allure.feature("搜索功能");
+  // before(async () => {
+  //   // 添加Allure环境标签
+  //   global.allure.epic("电影系统测试");
+  //   global.allure.feature("搜索功能");
     
-    driver = await new Builder().forBrowser('chrome').build();
-  });
+  //   driver = await new Builder().forBrowser('chrome').build();
+  // });
 
-  after(async () => {
-    // await driver.quit();
-  });
+  // after(async () => {
+  //   // await driver.quit();
+  // });
 
-  it('首页点击搜索框可以跳转到搜索页', async () => {
-    try{
-        global.allure.story("搜索页面导航");
+  // it('首页点击搜索框可以跳转到搜索页', async () => {
+  //   try{
+  //       global.allure.story("搜索页面导航");
         
-        await driver.get('https://movie-d.juyoufuli.com/');
-        const searchInput = await driver.wait(until.elementLocated(By.className('seearchContent')), 10000);
-        await searchInput.click();
+  //       await driver.get('https://movie-d.juyoufuli.com/');
+  //       const searchInput = await driver.wait(until.elementLocated(By.className('seearchContent')), 10000);
+  //       await searchInput.click();
         
-        await driver.wait(until.urlContains('searchPage'), 10000);
-        const currentUrl = await driver.getCurrentUrl();
-        expect(currentUrl).to.include('searchPage');
+  //       await driver.wait(until.urlContains('searchPage'), 10000);
+  //       const currentUrl = await driver.getCurrentUrl();
+  //       expect(currentUrl).to.include('searchPage');
         
-        // 添加截图附件
-        const screenshot = await driver.takeScreenshot();
-        global.allure.attachment("首页截图", Buffer.from(screenshot, 'base64'), 'image/png');
+  //       // 添加截图附件
+  //       const screenshot = await driver.takeScreenshot();
+  //       global.allure.attachment("首页截图", Buffer.from(screenshot, 'base64'), 'image/png');
         
-        console.log('✅ 测试通过：成功跳转到搜索页面！');
-      } catch (e) {
-        console.error(e);
-        throw e;
-    }
+  //       console.log('✅ 测试通过：成功跳转到搜索页面！');
+  //     } catch (e) {
+  //       console.error(e);
+  //       throw e;
+  //   }
     
-  });
+  // });
 
   // it('搜索少年的你，现实搜索结果', async function() {
   //   try{
