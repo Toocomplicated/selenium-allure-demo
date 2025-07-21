@@ -25,21 +25,20 @@ import { expect } from 'chai';
 // });
 
 describe('电影搜索页面测试', function () {
-  alert('test')
-  // let driver;
-  // this.timeout(30000); // 增加超时时间
+  let driver;
+  this.timeout(30000); // 增加超时时间
 
-  // before(async () => {
-  //   // 添加Allure环境标签
-  //   global.allure.epic("电影系统测试");
-  //   global.allure.feature("搜索功能");
+  before(async () => {
+    // 添加Allure环境标签
+    global.allure.epic("电影系统测试");
+    global.allure.feature("搜索功能");
     
-  //   driver = await new Builder().forBrowser('chrome').build();
-  // });
+    driver = await new Builder().forBrowser('chrome').build();
+  });
 
-  // after(async () => {
-  //   // await driver.quit();
-  // });
+  after(async () => {
+    await driver.quit();
+  });
 
   // it('首页点击搜索框可以跳转到搜索页', async () => {
   //   try{
