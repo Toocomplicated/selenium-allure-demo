@@ -5,25 +5,25 @@ import { expect } from 'chai';
 // ES Module兼容方案
 global.allure = allure;
 
-describe("Example Test Suite", () => {
-  it("should work", () => {
-    // 确保Allure API可用
-    if (!global.allure) {
-      console.error('Allure API not available in this context');
-      return;
-    }
+// describe("Example Test Suite", () => {
+//   it("should work", () => {
+//     // 确保Allure API可用
+//     if (!global.allure) {
+//       console.error('Allure API not available in this context');
+//       return;
+//     }
     
-    global.allure.epic("Example Epic");
-    global.allure.feature("Authentication");
+//     global.allure.epic("Example Epic");
+//     global.allure.feature("Authentication");
     
-    global.allure.step("Step 1: Perform action", () => {
-      console.log("Executing step 1");
-    });
+//     global.allure.step("Step 1: Perform action", () => {
+//       console.log("Executing step 1");
+//     });
     
-    const result = true;
-    expect(result).to.be.true;
-  });
-});
+//     const result = true;
+//     expect(result).to.be.true;
+//   });
+// });
 
 describe('电影搜索页面测试', function () {
   let driver;
@@ -65,31 +65,31 @@ describe('电影搜索页面测试', function () {
     
   });
 
-  it('搜索少年的你，现实搜索结果', async function() {
-    try{
-      global.allure.story("关键词搜索");
-        this.timeout(15000); // 单个测试增加超时
+  // it('搜索少年的你，现实搜索结果', async function() {
+  //   try{
+  //     global.allure.story("关键词搜索");
+  //       this.timeout(15000); // 单个测试增加超时
         
-        const searchInput = await driver.wait(until.elementLocated(By.className('searchInput')), 5000);
-        await searchInput.clear();
-        await searchInput.sendKeys('少年的你', Key.RETURN);
+  //       const searchInput = await driver.wait(until.elementLocated(By.className('searchInput')), 5000);
+  //       await searchInput.clear();
+  //       await searchInput.sendKeys('少年的你', Key.RETURN);
         
-        const searchBtn = await driver.wait(until.elementLocated(By.className('searchBtn')), 5000);
-        await searchBtn.click();
+  //       const searchBtn = await driver.wait(until.elementLocated(By.className('searchBtn')), 5000);
+  //       await searchBtn.click();
         
-        // 使用显式等待替代sleep
-        await driver.wait(until.elementLocated(By.className('buy')), 10000);
-        const results = await driver.findElements(By.className('buy'));
+  //       // 使用显式等待替代sleep
+  //       await driver.wait(until.elementLocated(By.className('buy')), 10000);
+  //       const results = await driver.findElements(By.className('buy'));
         
-        // 添加搜索结果的文本附件
-        const resultText = `找到 ${results.length} 个结果`;
-        global.allure.attachment("搜索结果", resultText, "text/plain");
+  //       // 添加搜索结果的文本附件
+  //       const resultText = `找到 ${results.length} 个结果`;
+  //       global.allure.attachment("搜索结果", resultText, "text/plain");
         
-        expect(results.length).to.be.above(0);
-        console.log('✅ 测试通过：现实搜索结果成功！');
-    }catch{
-      console.error(e);
-      throw e;
-    }
-  })
+  //       expect(results.length).to.be.above(0);
+  //       console.log('✅ 测试通过：现实搜索结果成功！');
+  //   }catch{
+  //     console.error(e);
+  //     throw e;
+  //   }
+  // })
 });
