@@ -23,7 +23,7 @@ jobs:
 
       - name: Run tests and generate Allure results
         run: |
-          rm -rf allure-results
+          rm -rf allure-results || true
           ALLURE_OUTPUT_DIR=allure-results npx mocha test/*.spec.js --reporter allure-mocha
 
       - name: Generate Allure report
