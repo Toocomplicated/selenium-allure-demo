@@ -1,6 +1,16 @@
 import { allure } from "allure-mocha/runtime";
 import { Builder, By, until, Key } from 'selenium-webdriver';
 import { expect } from 'chai';
+import chrome from 'selenium-webdriver/chrome.js';
+
+const options = new chrome.Options();
+// options.addArguments('--headless'); // 无界面运行
+// options.addArguments('--disable-gpu');
+// options.addArguments('--no-sandbox');
+// console.log(process.env,'==po')
+if (process.env.CI) {
+  options.addArguments('--headless');
+}
 
 // ES Module兼容方案
 global.allure = allure;
@@ -33,7 +43,11 @@ describe('电影搜索页面测试', function () {
     global.allure.epic("电影系统测试");
     global.allure.feature("搜索功能");
     
-    driver = await new Builder().forBrowser('chrome').build();
+    // driver = await new Builder().forBrowser('chrome').build();
+     driver = await new Builder()
+      .forBrowser('chrome')
+      .setChromeOptions(options)
+      .build();
   });
 
   after(async () => {
