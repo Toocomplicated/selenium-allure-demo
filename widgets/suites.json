@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"2c0a6c76b54e8db3eaf24f9fe4cfc418","name":"Example Test Suite","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
+{"total":2,"items":[{"uid":"e96851619c215c88a2e43e48f3b303f6","name":"电影搜索页面测试","statistic":{"failed":0,"broken":2,"skipped":0,"passed":0,"unknown":0,"total":2}},{"uid":"2c0a6c76b54e8db3eaf24f9fe4cfc418","name":"Example Test Suite","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
