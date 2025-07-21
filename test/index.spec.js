@@ -4,9 +4,6 @@ import { expect } from 'chai';
 
 // ES Module兼容方案
 // global.allure = allure;
-<div>
-  测试
-</div>
 // describe("Example Test Suite", () => {
 //   it("should work", () => {
 //     // 确保Allure API可用
@@ -28,6 +25,7 @@ import { expect } from 'chai';
 // });
 
 describe('电影搜索页面测试', function () {
+  alert('test')
   // let driver;
   // this.timeout(30000); // 增加超时时间
 
