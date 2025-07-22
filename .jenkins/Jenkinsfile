@@ -1,6 +1,9 @@
 pipeline {
-  agent any
-
+  agent {
+    docker {
+      image 'node:20'   // 使用官方 Node.js 镜像
+    }
+  }
   environment {
     ALLURE_RESULTS = 'allure-results'
     ALLURE_REPORT = 'allure-report'
@@ -13,7 +16,7 @@ pipeline {
         sh 'npm install'       // 安装依赖
       }
     }
-    
+
     stage('Checkout') {
       steps {
         git 'https://github.com/Toocomplicated/selenium-allure-demo.git'
