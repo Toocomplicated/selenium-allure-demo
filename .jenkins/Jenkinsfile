@@ -1,6 +1,11 @@
 pipeline {
   agent any
 
+  environment {
+    ALLURE_RESULTS = 'allure-results'
+    ALLURE_REPORT = 'allure-report'
+  }
+
   stages {
     stage('Install') {
       steps {
@@ -8,13 +13,7 @@ pipeline {
         sh 'npm install'       // 安装依赖
       }
     }
-
-  environment {
-    ALLURE_RESULTS = 'allure-results'
-    ALLURE_REPORT = 'allure-report'
-  }
-
-  stages {
+    
     stage('Checkout') {
       steps {
         git 'https://github.com/Toocomplicated/selenium-allure-demo.git'
