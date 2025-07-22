@@ -1,9 +1,13 @@
 pipeline {
   agent any
 
-  tools {
-    nodejs 'Node20'        // 使用已配置的 Node.js 工具名
-  }
+  stages {
+    stage('Install') {
+      steps {
+        sh 'node -v'           // 查看 Node.js 版本
+        sh 'npm install'       // 安装依赖
+      }
+    }
 
   environment {
     ALLURE_RESULTS = 'allure-results'
