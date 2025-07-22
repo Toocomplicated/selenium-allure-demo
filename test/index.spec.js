@@ -60,6 +60,8 @@ describe('电影搜索页面测试', function () {
         
         await driver.get('https://movie-d.juyoufuli.com/');
         const searchInput = await driver.wait(until.elementLocated(By.className('seearchContent')), 10000);
+        await driver.wait(until.elementIsVisible(searchInput), 5000);
+        await driver.wait(until.elementIsEnabled(searchInput), 5000);
         await searchInput.click();
         
         await driver.wait(until.urlContains('searchPage'), 10000);
@@ -84,10 +86,14 @@ describe('电影搜索页面测试', function () {
         this.timeout(15000); // 单个测试增加超时
         
         const searchInput = await driver.wait(until.elementLocated(By.className('searchInput')), 5000);
+        await driver.wait(until.elementIsVisible(searchInput), 5000);
+        await driver.wait(until.elementIsEnabled(searchInput), 5000);
         await searchInput.clear();
         await searchInput.sendKeys('少年的你', Key.RETURN);
         
         const searchBtn = await driver.wait(until.elementLocated(By.className('searchBtn')), 5000);
+        await driver.wait(until.elementIsVisible(searchBtn), 5000);
+        await driver.wait(until.elementIsEnabled(searchBtn), 5000);
         await searchBtn.click();
         
         // 使用显式等待替代sleep
@@ -100,7 +106,7 @@ describe('电影搜索页面测试', function () {
         
         expect(results.length).to.be.above(0);
         console.log('✅ 测试通过：现实搜索结果成功！');
-    }catch{
+    }catch(e){
       console.error(e);
       throw e;
     }
