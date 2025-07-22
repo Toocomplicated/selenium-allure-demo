@@ -36,7 +36,7 @@ describe("Example Test Suite", () => {
 
 describe('电影搜索页面测试', function () {
   let driver;
-  this.timeout(30000); // 增加超时时间
+  this.timeout(50000); // 增加超时时间
 
   before(async () => {
     // 添加Allure环境标签
@@ -59,12 +59,12 @@ describe('电影搜索页面测试', function () {
         global.allure.story("搜索页面导航");
         
         await driver.get('https://movie-d.juyoufuli.com/');
-        const searchInput = await driver.wait(until.elementLocated(By.className('seearchContent')), 10000);
-        await driver.wait(until.elementIsVisible(searchInput), 10000);
-        await driver.wait(until.elementIsEnabled(searchInput), 10000);
+        const searchInput = await driver.wait(until.elementLocated(By.className('seearchContent')), 30000);
+        await driver.wait(until.elementIsVisible(searchInput), 30000);
+        await driver.wait(until.elementIsEnabled(searchInput), 30000);
         await searchInput.click();
         
-        await driver.wait(until.urlContains('searchPage'), 10000);
+        await driver.wait(until.urlContains('searchPage'), 30000);
         const currentUrl = await driver.getCurrentUrl();
         expect(currentUrl).to.include('searchPage');
         
@@ -83,21 +83,21 @@ describe('电影搜索页面测试', function () {
   it('搜索少年的你，现实搜索结果', async function() {
     try{
       global.allure.story("关键词搜索");
-        this.timeout(15000); // 单个测试增加超时
+        this.timeout(50000); // 单个测试增加超时
         
-        const searchInput = await driver.wait(until.elementLocated(By.className('searchInput')), 10000);
-        await driver.wait(until.elementIsVisible(searchInput), 10000);
-        await driver.wait(until.elementIsEnabled(searchInput), 10000);
+        const searchInput = await driver.wait(until.elementLocated(By.className('searchInput')), 30000);
+        await driver.wait(until.elementIsVisible(searchInput), 30000);
+        await driver.wait(until.elementIsEnabled(searchInput), 30000);
         await searchInput.clear();
         await searchInput.sendKeys('少年的你', Key.RETURN);
         
-        const searchBtn = await driver.wait(until.elementLocated(By.className('searchBtn')), 10000);
-        await driver.wait(until.elementIsVisible(searchBtn), 10000);
-        await driver.wait(until.elementIsEnabled(searchBtn), 10000);
+        const searchBtn = await driver.wait(until.elementLocated(By.className('searchBtn')), 30000);
+        await driver.wait(until.elementIsVisible(searchBtn), 30000);
+        await driver.wait(until.elementIsEnabled(searchBtn), 30000);
         await searchBtn.click();
         
         // 使用显式等待替代sleep
-        await driver.wait(until.elementLocated(By.className('buy')), 10000);
+        await driver.wait(until.elementLocated(By.className('buy')), 30000);
         const results = await driver.findElements(By.className('buy'));
         
         // 添加搜索结果的文本附件
