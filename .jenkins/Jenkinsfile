@@ -26,8 +26,12 @@ pipeline {
 
     stage('Run Tests') {
       steps {
-        sh 'rm -rf $ALLURE_RESULTS || true'
-        sh 'ALLURE_OUTPUT_DIR=$ALLURE_RESULTS npx mocha test/*.spec.js --reporter allure-mocha || true'
+        catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+          sh '''
+            rm -rf $ALLURE_RESULTS || true
+            ALLURE_OUTPUT_DIR=$ALLURE_RESULTS npx mocha test/*.spec.js --reporter allure-mocha
+          '''
+        }
       }
     }
 
