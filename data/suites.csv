@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","32948","首页点击搜索框可以跳转到搜索页","电影搜索页面测试","Wed Aug 20 09:21:17 UTC 2025","broken","Wed Aug 20 09:21:50 UTC 2025","","","",""
-"","6","should work","Example Test Suite","Wed Aug 20 09:21:11 UTC 2025","passed","Wed Aug 20 09:21:11 UTC 2025","","","",""
-"","30081","搜索少年的你，现实搜索结果","电影搜索页面测试","Wed Aug 20 09:21:50 UTC 2025","broken","Wed Aug 20 09:22:20 UTC 2025","","","",""
+"","33823","首页点击搜索框可以跳转到搜索页","电影搜索页面测试","Wed Aug 20 09:23:29 UTC 2025","broken","Wed Aug 20 09:24:03 UTC 2025","","","",""
+"","5","should work","Example Test Suite","Wed Aug 20 09:23:21 UTC 2025","passed","Wed Aug 20 09:23:21 UTC 2025","","","",""
+"","30076","搜索少年的你，现实搜索结果","电影搜索页面测试","Wed Aug 20 09:24:03 UTC 2025","broken","Wed Aug 20 09:24:33 UTC 2025","","","",""
