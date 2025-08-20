@@ -19,7 +19,7 @@ pipeline {
 
     stage('Checkout') {
       steps {
-        git 'https://github.com/Toocomplicated/selenium-allure-demo.git'
+        git branch: 'main', url: 'https://github.com/Toocomplicated/selenium-allure-demo.git'
       }
     }
 
